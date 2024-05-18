@@ -1,5 +1,5 @@
 from django.db import models
-from rembg import remove
+#from rembg import remove
 from PIL import Image
 
 # Create your models here.
@@ -7,7 +7,7 @@ from PIL import Image
 class Latest(models.Model):
 
     description = models.TextField()
-    link= models.URLField(max_length=1000,verbose_name="paste link of latest youtube video")
+    link= models.TextField(default="",verbose_name="Paste Embed code of latest Video")
 '''
 This details to be posted on about section
 '''
@@ -93,6 +93,20 @@ class Blog(models.Model):
             new_img = (300, 800)
             img.thumbnail(new_img)
             img.save(self.image.path)
+
+
+class Gallery(models.Model):
+
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="gallery_images")
+
+    def __str__(self):
+
+        return str(self.title)
+    
+    class Meta:
+
+        verbose_name = "Gallery"
 
 
 
