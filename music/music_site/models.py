@@ -8,6 +8,11 @@ class Latest(models.Model):
 
     description = models.TextField()
     link= models.TextField(default="",verbose_name="Paste Embed code of latest Video")
+
+    class Meta:
+
+        verbose_name = "Latest Video"
+        verbose_name_plural = "Latest Video"
 '''
 This details to be posted on about section
 '''
@@ -25,7 +30,12 @@ class About(models.Model):
         img = Image.open(self.image.path)
         new_img = remove(img)
         new_img.save(self.image.path)
+
     '''
+    class Meta:
+
+        verbose_name = "About"
+        verbose_name_plural = "About"
 
         
 
@@ -37,6 +47,11 @@ class Playlist(models.Model):
     def __str__(self):
 
         return str(self.title)
+    
+    class Meta:
+
+        verbose_name = "Playlist"
+        verbose_name_plural = "Playlist"
     
 class Album(models.Model):
 
@@ -57,6 +72,10 @@ class Album(models.Model):
             new_img = (300, 800)
             img.thumbnail(new_img)
             img.save(self.image.path)
+    class Meta:
+
+        verbose_name = "Album"
+        verbose_name_plural = "Albums"
     
 class Events(models.Model):
 
@@ -75,6 +94,10 @@ class Events(models.Model):
             new_img = (300, 800)
             img.thumbnail(new_img)
             img.save(self.image.path)
+    class Meta:
+
+        verbose_name = "Events"
+        verbose_name_plural = "Events"
 
 
 class Blog(models.Model):
@@ -94,6 +117,11 @@ class Blog(models.Model):
             img.thumbnail(new_img)
             img.save(self.image.path)
 
+    class Meta:
+
+        verbose_name = "Blog & News"
+        verbose_name_plural = "Blog & News"
+
 
 class Gallery(models.Model):
 
@@ -107,6 +135,24 @@ class Gallery(models.Model):
     class Meta:
 
         verbose_name = "Gallery"
+        verbose_name_plural = "Gallery"
+
+
+class Messages(models.Model):
+
+    name = models.CharField(max_length=100)
+    contacts = models.CharField(max_length=100)
+    message = models.TextField()
+
+    def __str__(self):
+
+        return "Name:  "+str(self.name)+" || Contacts:  "+self.contacts
+    
+    class Meta:
+
+        verbose_name = "Messages"
+        verbose_name_plural = "Messages"
+
 
 
 

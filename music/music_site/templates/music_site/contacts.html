@@ -5,11 +5,22 @@
       <div class="row">      
           <div class="col-sm-6 col-sm-offset-3 ">
           <h4>Get in touch or<br><b>Just say Hello!</b></h4>
-            <input type="text" placeholder="Name">
-            <input type="text" placeholder="Email">
-            <textarea rows="5" placeholder="Message"></textarea>
-            <button class="btn btn-warning bgcolor">Send</button>
+          <form method="post" hx-post="{% url 'site-save-messages' %}" hx-target="#msgResp" hx-indicator="#msgSpin">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="contacts" placeholder="Email/Phone Number">
+            <textarea rows="5" name="message" placeholder="Message"></textarea>
+            <button ytpe="submit" class="btn btn-warning bgcolor">Send</button>
+          </form>
+          <div id="msgResp" style="color:white; font-weight: bolder;">
+           
           </div>
+          <div style="color:greenyellow" class="spinner-grow text-primary htmx-indicator" id="msgSpin" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          </div>
+       
+
       </div>
 
       <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>

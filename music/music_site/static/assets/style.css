@@ -123,3 +123,24 @@ button.close{position: absolute;right: 0;background: #FFF;width: 25px;height: 25
 	.events ul li,.events ul li .date{background: none;}
 	.events ul li .date b{display: inline;font-size: 22px;border-right: 1px solid #333;padding-right: 10px;margin-right: 10px;}
 }
+
+.my-indicator{
+    display:none;
+}
+.htmx-request .my-indicator{
+    display:inline;
+}
+.htmx-request.my-indicator{
+    display:inline;
+}
+
+.htmx-indicator{
+    opacity:0;
+    transition: opacity 500ms ease-in;
+}
+.htmx-request .htmx-indicator{
+    opacity:1
+}
+.htmx-request.htmx-indicator{
+    opacity:1
+}

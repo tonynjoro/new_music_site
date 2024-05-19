@@ -1,17 +1,16 @@
-
+<div id="gallery"></div>
+<h3><span class="glyphicon glyphicon-picture"></span> gallery</h3>
       
-<div class="row">
+<div class="row" style="margin:10px;">
+         
+    {% for gallery in gallery %}
 
-        <div class="col-md-4">
-            <img src="">
+        <div class="col-6 col-md-4 col-lg-3 col-sm-2" style="margin-top:10px;">
+            <img src="{{gallery.image.url}}">
         </div>
-        <div class="col-md-4">
-            <img src="">
-        </div>
-        <div class="col-md-4">
-            <img src="">
-        </div>
+    {% endfor %}
 
+</div>
 </div>
           
           
